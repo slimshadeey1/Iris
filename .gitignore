@@ -1,1 +1,11 @@
 *.iml
+*.bin
+gradle/wrapper/gradle-wrapper.properties
+*.jar
+*.lock
+.gradle/1.12/taskArtifacts/cache.properties
+gradlew
+gradlew.bat
+*.iml
+Iris.ipr
+Iris.iws

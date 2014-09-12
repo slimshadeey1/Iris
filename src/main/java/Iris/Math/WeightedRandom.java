@@ -1,6 +1,6 @@
 package Iris.Math;
 
-import Iris.*;
+import Iris.Interfaces.*;
 
 import java.util.*;
 

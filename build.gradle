@@ -1,0 +1,136 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+repositories {
+    maven {
+        name = "bukkit-repo"
+        url = "http://repo.bukkit.org/content/groups/public/"
+    }
+    maven {
+        name "chickenbones"
+        url "http://chickenbones.net/maven/"
+    }
+}
+
+apply plugin: 'forge'
+
+
+ext.configFile = file "build.properties"
+
+configFile.withReader {
+    // Load config.  It shall from now be referenced as simply config or project.config
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
+
+def build_number = (System.getenv("BUILD_NUMBER") ?: "1")
+version = "${project.config.mod.version}." + build_number
+group = 'Iris'
+archivesBaseName = "IrisAPI"
+
+
+minecraft {
+    version = config.mc.version + "-" + config.forge.version
+    if (file('../run').exists()) {
+        runDir = "../run"
+    } else {
+        runDir = "run"
+    }
+}
+
+dependencies {
+    compile group: 'org.bukkit', name: 'bukkit', version: config.bukkit.version
+    compile "codechicken:ForgeMultipart:${config.mc.version}-${config.fmp.version}:dev"
+}
+
+sourceSets {
+    main {
+        def root = project.projectDir
+        java {
+            srcDir new File(root, "src/main/java")
+        }
+        resources {
+            srcDir new File(root, "src/main")
+        }
+    }
+}
+
+processResources {
+    //redo task if any of these properties change
+    inputs.property "version", project.version
+    inputs.property "mc.version", config.mc.version
+
+    // Replace properties in all files
+    from(sourceSets.main.resources.srcDirs) {
+        include '**.info'
+        filter(ReplaceTokens, tokens: [
+                'VERSION'      : config.mod.version,
+                'BUILD_NUMBER' : build_number,
+                'MC_VERSION'   : config.mc.version,
+                'FORGE_VERSION': config.forge.version,
+        ])
+    }
+    // Copy everything else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'resources/**/*.*'
+    }
+}
+
+
+ext.jarVer = "${project.minecraft.version}-${project.version}"
+
+ext.jarFile = reobf.outputs.files
+
+ext.jarPlugin = compileJava.outputs.files
+
+
+task forgeJar(type: Jar, dependsOn: reobf) {
+    from(project.ext.jarFile) {
+        include "**/Iris/IrisForge.class"
+        include "**/Iris/Forge/**"
+        include "**/Iris/Communication/**"
+        include "**/Iris/Math/**"
+        include "**/Iris/Interfaces/**"
+
+
+        include "Iris_mod.info"
+        rename("Iris_mod.info", 'mcmod.info')
+    }
+    version = project.ext.jarVer
+    appendix = 'Forge'
+}
+
+task bukkitJar(type: Jar) {
+    from(project.ext.jarPlugin) {
+        include "**/Iris/IrisBukkit.class"
+        include "**/Iris/Bukkit/**"
+        include "**/Iris/Communication/**"
+        include "**/Iris/Math/**"
+        include "**/Iris/Interfaces/**"
+        include "**/resources/**"
+    }
+    version = project.ext.jarVer
+    appendix = 'Bukkit'
+}
+
+artifacts {
+    archives forgeJar
+    archives bukkitJar
+}
