@@ -41,9 +41,9 @@ configFile.withReader {
 }
 
 def build_number = (System.getenv("BUILD_NUMBER") ?: "1")
-version = "${project.config.mod.version}." + build_number
+version = "${config.mc.version}-${project.config.mod.version}." + build_number
 group = 'Iris'
-archivesBaseName = "IrisAPI"
+archivesBaseName = "IrisForge"
 
 
 minecraft {
@@ -56,7 +56,6 @@ minecraft {
 }
 
 dependencies {
-    compile group: 'org.bukkit', name: 'bukkit', version: config.bukkit.version
     compile "codechicken:ForgeMultipart:${config.mc.version}-${config.fmp.version}:dev"
 }
 
@@ -96,41 +95,9 @@ processResources {
 
 ext.jarVer = "${project.minecraft.version}-${project.version}"
 
-ext.jarFile = reobf.outputs.files
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
 
 ext.jarPlugin = compileJava.outputs.files
-
-
-task forgeJar(type: Jar, dependsOn: reobf) {
-    from(project.ext.jarFile) {
-        include "**/Iris/IrisForge.class"
-        include "**/Iris/Forge/**"
-        include "**/Iris/Communication/**"
-        include "**/Iris/Math/**"
-        include "**/Iris/Interfaces/**"
-
-
-        include "Iris_mod.info"
-        rename("Iris_mod.info", 'mcmod.info')
-    }
-    version = project.ext.jarVer
-    appendix = 'Forge'
-}
-
-task bukkitJar(type: Jar) {
-    from(project.ext.jarPlugin) {
-        include "**/Iris/IrisBukkit.class"
-        include "**/Iris/Bukkit/**"
-        include "**/Iris/Communication/**"
-        include "**/Iris/Math/**"
-        include "**/Iris/Interfaces/**"
-        include "**/resources/**"
-    }
-    version = project.ext.jarVer
-    appendix = 'Bukkit'
-}
-
-artifacts {
-    archives forgeJar
-    archives bukkitJar
-}
