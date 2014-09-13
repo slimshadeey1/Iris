@@ -9,12 +9,12 @@ public abstract class WeightedObject implements IWeightedObject {
     private Integer frequency;
 
     @Override
-    public void setFreququency(Integer frequency) {
-        frequency = frequency;
+    public void setFrequency(Integer frequency) {
+        this.frequency = frequency;
     }
 
     @Override
-    public Integer getfrequency() {
+    public Integer getFrequency() {
         return frequency;
     }
 }

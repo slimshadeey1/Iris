@@ -10,11 +10,11 @@ public abstract class WeightedRunnable implements IWeightedRunnable {
 
     @Override
     public void setFrequency(Integer frequency) {
-        frequency = freququency;
+        this.frequency = frequency;
     }
 
     @Override
-    public Integer getfrequency() {
+    public Integer getFrequency() {
         return frequency;
     }
 
