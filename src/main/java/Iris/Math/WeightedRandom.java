@@ -12,16 +12,16 @@ public class WeightedRandom {
     private int FINE_CURVE;
     private int sumRun = 0;
     private int sumReturn = 0;
-    private ArrayList<WeightedRunnable> ExecList;
-    private ArrayList<WeightedObject> returnList;
+    private ArrayList<IWeightedRunnable> ExecList;
+    private ArrayList<IWeightedObject> returnList;
 
     public WeightedRandom(Integer tune) {
         FINE_CURVE = tune;
-        returnList = new ArrayList<WeightedObject>();
-        ExecList = new ArrayList<WeightedRunnable>();
+        returnList = new ArrayList<IWeightedObject>();
+        ExecList = new ArrayList<IWeightedRunnable>();
     }
 
-    public boolean addWeightedRunnable(WeightedRunnable clazz) {
+    public boolean addWeightedRunnable(IWeightedRunnable clazz) {
         if (ExecList.contains(clazz)) {
             return false;
         } else {
@@ -31,7 +31,7 @@ public class WeightedRandom {
         }
     }
 
-    public boolean addWeightedObject(WeightedObject e) {
+    public boolean addWeightedObject(IWeightedObject e) {
         if (returnList.isEmpty()) {
             return false;
         } else {
@@ -46,9 +46,9 @@ public class WeightedRandom {
             throw new NullPointerException();
         } else {
 
-            ArrayList<WeightedRunnable> clazzes = new ArrayList<WeightedRunnable>();
+            ArrayList<IWeightedRunnable> clazzes = new ArrayList<IWeightedRunnable>();
             int rand = random.nextInt(sumRun);
-            for (WeightedRunnable clazz : ExecList) {     // For each item on the list
+            for (IWeightedRunnable clazz : ExecList) {     // For each item on the list
                 if (rand < clazz.getFreququency()) {               // This checks the items set frequency to the current frequency, then adds it to the qualification list
                     if (rand <= FINE_CURVE) {                  // This adds a curve to the generation of the drops list, for items under the curve.
                         if (clazz.getFreququency() <= FINE_CURVE)  // the reason for this being if something is 1% and we get 1%, then everything above
@@ -65,13 +65,13 @@ public class WeightedRandom {
         }
     }
 
-    public WeightedObject returnRandom() throws NullPointerException {
+    public IWeightedObject returnRandom() throws NullPointerException {
         if (returnList.isEmpty()) {
             throw new NullPointerException();
         } else {
-            ArrayList<WeightedObject> objects = new ArrayList<WeightedObject>();
+            ArrayList<IWeightedObject> objects = new ArrayList<IWeightedObject>();
             int rand = random.nextInt(sumRun);
-            for (WeightedObject e : returnList) {     // For each item on the list
+            for (IWeightedObject e : returnList) {     // For each item on the list
                 if (rand < e.getFreququency()) {               // This checks the items set frequency to the current frequency, then adds it to the qualification list
                     if (rand <= FINE_CURVE) {                  // This adds a curve to the generation of the drops list, for items under the curve.
                         if (e.getFreququency() <= FINE_CURVE)  // the reason for this being if something is 1% and we get 1%, then everything above

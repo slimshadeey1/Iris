@@ -5,10 +5,8 @@ import Iris.*;
 /**
  * Created by Ben Byers on 9/10/2014.
  */
-public interface WeightedRunnable {
-
-    public Integer Freququency = 0;
+public interface IWeightedRunnable {
+    public void setFreququency(Integer freququency);
     public Integer getFreququency();
     public void run();
-
 }
