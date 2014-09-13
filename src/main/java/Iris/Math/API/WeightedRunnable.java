@@ -6,16 +6,16 @@ import Iris.Interfaces.*;
  * Created by Ben Byers on 9/13/2014.
  */
 public abstract class WeightedRunnable implements IWeightedRunnable {
-    private Integer Freququency;
+    private Integer frequency;
 
     @Override
-    public void setFreququency(Integer freququency) {
-        Freququency = freququency;
+    public void setFrequency(Integer frequency) {
+        frequency = freququency;
     }
 
     @Override
-    public Integer getFreququency() {
-        return Freququency;
+    public Integer getfrequency() {
+        return frequency;
     }
 
 }
