@@ -18,8 +18,6 @@ dependencies {
 apply plugin: 'maven'
 apply plugin: 'java'
 
-USERNAME = "${System.env.USERNAME}"
-OAUTH = "${System.env.OAUTH}"
 
 
 ext.configFile = file "build.properties"
@@ -40,7 +38,7 @@ uploadArchives {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
         snapshotRepository(url: "https://raw.github.com/slimshadeey1/Snapshots") {
-            authentication(userName: USERNAME, password: OAUTH)
+            authentication(userName: "${System.env.USERNAME}", password: "${System.env.OAUTH}")
         }
     }
 }
