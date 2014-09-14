@@ -1,3 +1,6 @@
+configurations {
+    deployerJars
+}
 buildscript {
     repositories {
         mavenCentral()
@@ -13,6 +16,7 @@ dependencies {
 }
 
 apply plugin: 'maven'
+apply plugin: 'java'
 
 USERNAME = "${System.env.USERNAME}"
 OAUTH = "${System.env.OAUTH}"
@@ -32,12 +36,10 @@ version = "${project.config.mod.version}." + build_number
 group = 'Iris'
 archivesBaseName = "Iris"
 
-ext.jarVer = "${project.minecraft.version}-${project.version}"
-
 uploadArchives {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
-        repository(url: "https://raw.github.com/slimshadeey1/Snapshots") {
+        snapshotRepository(url: "https://raw.github.com/slimshadeey1/Snapshots") {
             authentication(userName: USERNAME, password: OAUTH)
         }
     }
