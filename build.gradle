@@ -14,8 +14,8 @@ dependencies {
 
 apply plugin: 'maven'
 
-USERNAME = "$System.env.USERNAME"
-OAUTH = "$System.env.OAUTH"
+USERNAME = "${System.env.USERNAME}"
+OAUTH = "${System.env.OAUTH}"
 
 
 ext.configFile = file "build.properties"
