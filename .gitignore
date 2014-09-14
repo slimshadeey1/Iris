@@ -13,3 +13,6 @@ Iris.iml
 Iris.iml
 *.iml
 Iris.iml
+Forge/build.properties
+Forge/buildForge.gradle
+Forge/build.properties
