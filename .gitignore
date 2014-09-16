@@ -16,3 +16,5 @@ Iris.iml
 Forge/build.properties
 Forge/buildForge.gradle
 Forge/build.properties
+*.class
+*.lst
