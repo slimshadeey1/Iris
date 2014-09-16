@@ -1,2 +1,6 @@
 language: java
-script: mvn deploy
+script: mvn deploy --settings target/master/settings.xml
+env:
+  global:
+	- secure: "CkvBLn2/4TdFNBFN1Bx8ymiMEsxLGBmnVoYoLpk9XPd261PMALyx1NDPjbUGueXhNggGq//++1HzJp/fUoRGwyHzhLJzxP0gUqkiFnTbQdBHlbsloOZI2eWBUzYjJaWd/4JtJ6vPSi5Ze6DhuJfaouX7Nj7H57azJwPwoAU7zTM="
+	- secure: "jgFlUDS+agv2gRjO8v9lsqDwhqMJamrr1dn47xzeHXxx6o1IEV5GONyK0GvBMphpqh7d4AjTapPBMyjmD9YTUQjOl/QC3Y0z9ws7Zdhh9wDYsettzptbAfuPVU0w3d4wWFy3q/oewRgLk6k5OuJLd8bBPifZUVYQEMknvAytfhQ="
