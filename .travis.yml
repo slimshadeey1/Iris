@@ -1,2 +1,2 @@
 language: java
-script: mvn deploy --settings target/master/settings.xml
+script: mvn deploy --settings settings.xml
