@@ -1,4 +1,4 @@
 language: java
 script:
-  - svn list https://iris-api.googlecode.com --non-interactive --trust-server-cert
+  - svn list https://iris-api.googlecode.com/svn/branches/releases --non-interactive --trust-server-cert
   - mvn deploy --settings settings.xml
