@@ -8,6 +8,14 @@
     <artifactId>Iris</artifactId>
     <version>1.0</version>
     <build>
+        <finalName>$\{project.artifactId}-$\{project.version}-r$\{env.TRAVIS_BUILD_NUMBER}</finalName>
+        <extensions>
+            <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.8</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -19,18 +27,17 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>$\{project.artifactId}-$\{project.version}-r$\{env.TRAVIS_BUILD_NUMBER}</finalName>
     </build>
     <distributionManagement>
-		<repository>
-			<id>MilSpec Server Group Repo</id>
-			<name>MilSpec Server Group Repo-releases</name>
-        <url>http://repo.milspecsg.com/libs-release-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>MilSpec Server Group Repo</id>
-			<name>MilSpec Server Group Repo-snapshots</name>
-			<url>http://repo.milspecsg.com/libs-snapshot-local</url>
-		</snapshotRepository>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>googlecode</id>
+            <url>svn:https://iris-api.googlecode.com/svn/branches/releases</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>googlecode</id>
+            <url>svn:https://iris-api.googlecode.com/svn/branches/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 </project>
