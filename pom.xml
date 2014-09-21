@@ -6,9 +6,9 @@
 
     <groupId>io.github.slimshadeey1</groupId>
     <artifactId>Iris</artifactId>
-    <version>1.0</version>
+    <version>1.0.${env.TRAVIS_BUILD_NUMBER}</version>
     <build>
-        <finalName>$\{project.artifactId}-$\{project.version}-r$\{env.TRAVIS_BUILD_NUMBER}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
