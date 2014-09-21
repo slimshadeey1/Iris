@@ -1,6 +1,6 @@
 language: java
 before_script:
-  - mvn versions:set -DnewVersion 1.0.$TRAVIS_BUILD_NUMBER
+  - mvn versions:set -DnewVersion=1.0.$TRAVIS_BUILD_NUMBER
 script:
   - svn info https://iris-api.googlecode.com/svn/branches/releases --non-interactive --trust-server-cert
   - mvn deploy scm:tag --settings settings.xml -B
