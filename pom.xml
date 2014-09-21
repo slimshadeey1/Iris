@@ -8,7 +8,7 @@
     <artifactId>Iris</artifactId>
     <version>1.0.0</version>
     <scm>
-        <connection>scm:git:https://github.com/slimshadeey1/Iris.git</connection>
+        <connection>scm:git:https://slimshadeey1:${env.PASSWORD}@github.org/Iris.git</connection>
     </scm>
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
