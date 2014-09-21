@@ -22,13 +22,15 @@
         <finalName>$\{project.artifactId}-$\{project.version}-r$\{env.TRAVIS_BUILD_NUMBER}</finalName>
     </build>
     <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <url>http://repo.milspecsg.com:8081/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>http://repo.milspecsg.com:8081/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
+		<repository>
+			<id>MilSpec Server Group Repo</id>
+			<name>MilSpec Server Group Repo-releases</name>
+        <url>http://repo.milspecsg.com/libs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>MilSpec Server Group Repo</id>
+			<name>MilSpec Server Group Repo-snapshots</name>
+			<url>http://repo.milspecsg.com/libs-snapshot-local</url>
+		</snapshotRepository>
     </distributionManagement>
 </project>
