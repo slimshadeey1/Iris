@@ -1,9 +1,8 @@
 language: java
 before_script:
   - mvn versions:set -DnewVersion=1.0.$TRAVIS_BUILD_NUMBER
-  - git config --global user.name "Slimshadeey1"
-  -	git config --global user.email slimshadeey1@users.noreply.github.com
-
+  - git config --global user.name Slimshadeey1
+  - git config --global user.email slimshadeey1@users.noreply.github.com
 script:
   - svn info https://iris-api.googlecode.com/svn/branches/releases --non-interactive --trust-server-cert
   - mvn deploy scm:tag --settings settings.xml -B
