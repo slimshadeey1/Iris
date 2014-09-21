@@ -1,3 +1,3 @@
 language: java
-script: mvn deploy --settings settings.xml -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Djavax.net.ssl.trustStore=/dev/null package
-
+script: $JAVA_HOME/bin/keytool -import -alias Google -file Google.cer -keystore $JAVA_HOME/jre/lib/security/cacerts
+script: mvn deploy --settings settings.xml
