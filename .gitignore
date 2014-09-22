@@ -18,3 +18,4 @@ Forge/buildForge.gradle
 Forge/build.properties
 *.class
 *.lst
+target/maven-archiver/pom.properties
