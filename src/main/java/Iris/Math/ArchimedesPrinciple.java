@@ -7,43 +7,34 @@ public class ArchimedesPrinciple {
     /**
      * The average density of water is measured at 999.97 kg/m^3
      * Because of this are calculations will be based on meters and kg.
-     * Entity has height and width^2
-     *
+     * The principle states that a the buoyant force acting on an object is the weight
+     * of the fluid displaced by the object submerged. The
      * TODO: This is not finished!
      */
-    private Float kgN = 9.81F;
     private Float WetWeight; //In Newtons
     private Float StandardWeight; //In newtons
-    private Float ObjectMass;
-    private Float ObjectVolume;
-    private Float BouyancyForce;
-    private Float ObjectDensity;
+    private Float BuoyantForce;
     private Float WaterDensity = 999.97F; //kg per m^3
-    private Boolean Floats = ObjectDensity < WaterDensity;
+    private Boolean Floats;
 
-    public ArchimedesPrinciple(Float Volume, Float Mass){
-        ObjectVolume = Volume;// In cubic meters
-        ObjectMass = Mass;// In kg
-        ObjectDensity = Mass/Volume;
-        StandardWeight = ObjectMass/kgN;
-        WetWeight = ObjectVolume*WaterDensity;
-        BouyancyForce = StandardWeight - WetWeight;
+    public ArchimedesPrinciple(Float Volume, Float Mass, Float waterdensity){
+        if(waterdensity != null) WaterDensity = waterdensity;
+        StandardWeight = Mass*9.8F;
+        WetWeight = (WaterDensity*Volume)*9.8F;
+        Floats = WetWeight >= StandardWeight;
+        BuoyantForce = WetWeight - StandardWeight;
     }
 
     public Boolean doesFloat() {
         return Floats;
     }
 
-    public void setWaterDensity(Float waterDensity) {
-        WaterDensity = waterDensity;
-    }
-
     public Float getWetWeight() {
         return WetWeight;
     }
 
-    public Float getBouyancyForce() {
-        return BouyancyForce;
+    public Float getBouyantForce() {
+        return BuoyantForce;
     }
 
     public Float getWaterDensity() {
@@ -54,15 +45,4 @@ public class ArchimedesPrinciple {
         return StandardWeight;
     }
 
-    public Float getObjectVolume() {
-        return ObjectVolume;
-    }
-
-    public Float getObjectMass() {
-        return ObjectMass;
-    }
-
-    public Float getObjectDensity() {
-        return ObjectDensity;
-    }
 }
