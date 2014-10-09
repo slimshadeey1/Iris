@@ -1,13 +1,16 @@
 package Iris.Math;
 
-import Iris.Interfaces.*;
+import Iris.Interfaces.IWeightedObject;
+import Iris.Interfaces.IWeightedRunnable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Ben Byers on 9/10/2014.
  */
 public class WeightedRandom {
+
     private Random random = new Random();
     private int FINE_CURVE;
     private int sumRun = 0;
@@ -49,10 +52,14 @@ public class WeightedRandom {
             ArrayList<IWeightedRunnable> clazzes = new ArrayList<IWeightedRunnable>();
             int rand = random.nextInt(sumRun);
             for (IWeightedRunnable clazz : ExecList) {     // For each item on the list
-                if (rand < clazz.getFrequency()) {               // This checks the items set frequency to the current frequency, then adds it to the qualification list
+                if (rand < clazz
+                        .getFrequency()) {               // This checks the items set frequency to the current frequency, then adds it to the qualification list
                     if (rand <= FINE_CURVE) {                  // This adds a curve to the generation of the drops list, for items under the curve.
                         if (clazz.getFrequency() <= FINE_CURVE)  // the reason for this being if something is 1% and we get 1%, then everything above
-                            clazzes.add(clazz);                // would be added making it nearly impossible to get. This just balances it a little more
+                        {
+                            clazzes.add(
+                                    clazz);                // would be added making it nearly impossible to get. This just balances it a little more
+                        }
                     } else {                                   // We will only add the items the are below 10% but greater than the cutoff
                         clazzes.add(clazz);                    // Adding everything to list if above 10%, and meets the cutoff
                     }
@@ -72,10 +79,13 @@ public class WeightedRandom {
             ArrayList<IWeightedObject> objects = new ArrayList<IWeightedObject>();
             int rand = random.nextInt(sumRun);
             for (IWeightedObject e : returnList) {     // For each item on the list
-                if (rand < e.getFrequency()) {               // This checks the items set frequency to the current frequency, then adds it to the qualification list
+                if (rand < e
+                        .getFrequency()) {               // This checks the items set frequency to the current frequency, then adds it to the qualification list
                     if (rand <= FINE_CURVE) {                  // This adds a curve to the generation of the drops list, for items under the curve.
                         if (e.getFrequency() <= FINE_CURVE)  // the reason for this being if something is 1% and we get 1%, then everything above
+                        {
                             objects.add(e);                // would be added making it nearly impossible to get. This just balances it a little more
+                        }
                     } else {                                   // We will only add the items the are below 10% but greater than the cutoff
                         objects.add(e);                    // Adding everything to list if above 10%, and meets the cutoff
                     }
