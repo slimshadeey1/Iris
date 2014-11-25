@@ -80,14 +80,14 @@ public class WeightedRandom {
             int rand = random.nextInt(sumRun);
             for (IWeightedObject e : returnList) {     // For each item on the list
                 if (rand < e
-                        .getFrequency()) {               // This checks the items set frequency to the current frequency, then adds it to the qualification list
-                    if (rand <= FINE_CURVE) {                  // This adds a curve to the generation of the drops list, for items under the curve.
+                        .getFrequency()) {                   // This checks the items set frequency to the current frequency, then adds it to the qualification list
+                    if (rand <= FINE_CURVE) {                // This adds a curve to the generation of the drops list, for items under the curve.
                         if (e.getFrequency() <= FINE_CURVE)  // the reason for this being if something is 1% and we get 1%, then everything above
                         {
-                            objects.add(e);                // would be added making it nearly impossible to get. This just balances it a little more
+                            objects.add(e);                 // would be added making it nearly impossible to get. This just balances it a little more
                         }
-                    } else {                                   // We will only add the items the are below 10% but greater than the cutoff
-                        objects.add(e);                    // Adding everything to list if above 10%, and meets the cutoff
+                    } else {                                // We will only add the items the are below 10% but greater than the cutoff
+                        objects.add(e);                     // Adding everything to list if above 10%, and meets the cutoff
                     }
                 }
             }
