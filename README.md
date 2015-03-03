@@ -9,6 +9,6 @@ Coming soon!
 - Consolidated Channel handler that is universal
 - Packet dispatch/formatter
 - Packet Creator
-- 
+- Work on Travis CI build check
 
 [![Build Status](https://travis-ci.org/slimshadeey1/Iris.svg?branch=master)](https://travis-ci.org/slimshadeey1/Iris)
