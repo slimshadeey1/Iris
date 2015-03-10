@@ -1,4 +1,4 @@
-package Iris.Math;
+package com.benbyers.Iris.Math;
 
 /**
  * Created by Ben Byers on 9/15/2014.
@@ -11,6 +11,8 @@ public class ArchimedesPrinciple {
      * The principle states that a the buoyant force acting on an object is the weight
      * of the fluid displaced by the object submerged. The
      * TODO: This is not finished!
+     *
+     * TODO: Rework of the whole class.
      */
     private Float WetWeight; //In Newtons
     private Float StandardWeight; //In newtons

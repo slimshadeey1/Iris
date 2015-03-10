@@ -1,4 +1,4 @@
-package Iris.Math;
+package com.benbyers.Iris.Math;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -68,23 +68,10 @@ public class Vector {
         return Math.sqrt(X * Y * Z);
     }
 
-    public void getMultiplyByVector(Vector vector) {
+    public void multiplyByVector(Vector vector) {
         setX(this.x * vector.x);
         setY(this.y * vector.y);
         setZ(this.z * vector.z);
-    }
-
-    public Vector[] getVectorsInRadius(int radius) {
-        Vector[] vectors = new Vector[] {};
-        for (int xx = -radius; xx == radius; xx++) {
-            for (int yy = -radius; yy == radius; yy++) {
-                for (int zz = -radius; zz == radius; zz++) {
-                    vectors[vectors.length] =
-                        new Vector(x + xx, y + yy, z + zz); //This could be a bug.
-                }
-            }
-        }
-        return vectors;
     }
 
     public boolean equals(Vector vector) {
@@ -153,6 +140,33 @@ public class Vector {
         return new Vector(vector.x - x, vector.y - y, vector.z - z);
     }
 
+    public Vector[] getRadius(int radius) {
+        Vector[] vectors = new Vector[] {}; //  Array to hold the vectors
+        int count = 0; // Index of the vector array
+        for (double x = -this.x; x <= this.x; x++) { // Ok so this starts at the value of -x, and counts up to positive x.
+
+            // This takes the sin of the inverse cosine of the x defined in the for loop divided by x.
+            double a = x * Math.sin(Math.acos(x / this.x));
+            // Since X is the Hypotenuse of a triangle as well as the radius of the circle,
+            // we can use unit circle style math to get Y, and Z
+            // All we need to do is add the value of A to Y, to get the absolute vector. It works the same for Z.
+
+            // For each X position there will be a row of Y positions, which will contain a column of Z positions.
+
+            for (double y = -a + -this.y; y <= a + this.y; y++) { // Add negative A to y, go until y is equal to a+y.
+                // For each Y position there will be a column of Z positions.
+
+                for (double z = -a + -this.z; z <= a + this.z; z++) {
+
+                    // Add the vector, for each Z coordinate. At the location of the index.
+                    vectors[count] = new Vector(x, y, z);
+                    count++; // Increment the Index by one.
+                }
+            }
+        }
+        return vectors;
+    }
+
 
     /*
         **********************
@@ -185,7 +199,8 @@ public class Vector {
             }
 
             vectors.remove(
-                minIndex); // When the min is found, remove it from the list. Then we can loop through the list again and find a different minimum
+                minIndex); // When the min is found, remove it from the list.
+                // Then we can loop through the list again and find a different minimum
 
             sorted[sorted.length] =
                 min; // Add the minimum to the Array, in the next consecutive location (Append)
@@ -228,7 +243,8 @@ public class Vector {
 
 
     Vector[][] OnionSort(Vector[] unsorted) {
-        ArrayList<Vector> vectors = new ArrayList<>(Arrays.asList(unsorted)); // Convert the Array to an Array list to speed up removal operations
+        ArrayList<Vector> vectors = new ArrayList<>(Arrays.asList(unsorted)); // Convert the Array to
+        // an Array list to speed up removal operations
         Vector[][] sorted = new Vector[][] {}; // Create the array of sorted vectors
         Boolean sort = !vectors.isEmpty(); // Check if list is empty. If not then sort is true.
         while (sort) { // If list is not empty, sort. Loop through until list empty.
@@ -238,7 +254,8 @@ public class Vector {
             int minIndex = 0; // Location of the minimum element, we use this to remove it at the end.
             for (int i = 0; i < vectors.size(); i++) { // Iterate vector list
                 Vector index = vectors.get(i); // Get the current vector to compare
-                if (Math.abs(index.x) < Math.abs(min.x)) { // Compare vector to minimum, do absolute value to handle negative inverses.
+                if (Math.abs(index.x) < Math.abs(min.x)) { // Compare vector to minimum, do
+                // absolute value to handle negative inverses.
                     min = index; // Set the Vector of lowest to current if true
                     minIndex = i; // Set the index of the lowest to the current index location if true.
                 }
@@ -276,31 +293,6 @@ public class Vector {
         return sorted;
     }
 
-    public Vector[] getRadius(int radius) {
-        Vector[] vectors = new Vector[] {}; //  Array to hold the vectors
-        int count = 0; // Index of the vector array
-        for (double x = -this.x; x <= this.x; x++) { // Ok so this starts at the value of -x, and counts up to positive x.
-
-            // This takes the sin of the inverse cosine of the x defined in the for loop divided by x.
-            double a = x * Math.sin(Math.acos(x / this.x));
-            // Since X is the Hypotenuse of a triangle as well as the radius of the circle, we can use unit circle style math to get Y, and Z
-            // All we need to do is add the value of A to Y, to get the absolute vector. It works the same for Z.
-
-            // For each X position there will be a row of Y positions, which will contain a column of Z positions.
-
-            for (double y = -a + -this.y; y <= a + this.y; y++) { // Add negative A to y, go until y is equal to a+y.
-                // For each Y position there will be a column of Z positions.
-
-                for (double z = -a + -this.z; z <= a + this.z; z++) {
-
-                    // Add the vector, for each Z coordinate. At the location of the index.
-                    vectors[count] = new Vector(x, y, z);
-                    count++; // Increment the Index by one.
-                }
-            }
-        }
-        return vectors;
-    }
 
     //TODO: Sort sub list in onion.
     // Possible solution:

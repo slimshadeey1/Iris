@@ -1,9 +1,9 @@
-package Iris.Math;
+package com.benbyers.Iris.Math;
 
 /**
  * Created by benbyers on 3/7/15.
  */
-public class Tuple<A,B> {
+public class Tuple<A,B> implements Comparable<Tuple> {
     A a;
     B b;
 
@@ -26,5 +26,9 @@ public class Tuple<A,B> {
 
     public void setB(B b) {
         this.b = b;
+    }
+
+    @Override public int compareTo(Tuple o) {
+        return o.hashCode()-this.hashCode();
     }
 }

@@ -1,4 +1,4 @@
-package Iris.Math;
+package com.benbyers.Iris.Math;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -6,11 +6,11 @@ import java.util.Random;
 /**
  * Created by benbyers on 3/8/15.
  */
-public class WeightedRandomType<T> {
+public class WeightedRandom<T> {
     private T aobjects[];
     private int Weight;
 
-    public WeightedRandomType(int Weight) {
+    public WeightedRandom(int Weight) {
         this.Weight = Weight;
     }
 
