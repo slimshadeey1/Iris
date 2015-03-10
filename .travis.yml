@@ -4,5 +4,8 @@ before_script:
   - git config --global user.name Slimshadeey1
   - git config --global user.email slimshadeey1@users.noreply.github.com
 script:
-  - svn info https://iris-api.googlecode.com/svn/branches/releases --non-interactive --trust-server-cert
-  - mvn deploy --settings settings.xml -B
+  - mvn clean install
+
+# Will eventualy repair.
+#  - svn info https://iris-api.googlecode.com/svn/branches/releases --non-interactive --trust-server-cert
+#  - mvn deploy --settings settings.xml -B
