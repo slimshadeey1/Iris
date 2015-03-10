@@ -1,12 +1,8 @@
 package Iris.Math;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
 /**
  * Created by Ben Byers on 10/4/2014. Math for Vectors
@@ -171,26 +167,32 @@ public class Vector {
 
     Vector[] sortLow(Vector[] Unsorted) {
         Vector[] sorted = new Vector[] {}; // Sorted array
-        ArrayList<Vector> vectors = new ArrayList<>(Arrays.asList(Unsorted)); // Turn unsorted into list for easier manipulation (removing, etc.)
-        Boolean sort = !vectors.isEmpty();// Check if list empty, if so nothing happens, otherwise sort is true.
-        while(sort) { // Infinitely loop until sort is false
+        ArrayList<Vector> vectors = new ArrayList<>(Arrays
+            .asList(Unsorted)); // Turn unsorted into list for easier manipulation (removing, etc.)
+        Boolean sort = !vectors
+            .isEmpty();// Check if list empty, if so nothing happens, otherwise sort is true.
+        while (sort) { // Infinitely loop until sort is false
             int minIndex = 0; // Location of min value
             Vector min = vectors.get(0); // Min value
 
             for (int i = 0; i < vectors.size(); i++) {
                 Vector index = vectors.get(i);
-                if(index.x < min.x) { // Compare the min.x with the current x, if current is lower than the min do
+                if (index.x
+                    < min.x) { // Compare the min.x with the current x, if current is lower than the min do
                     min = index; // Set the min to the current
                     minIndex = i; // Set the location of the current Vector for min Index.
                 }
             }
 
-            vectors.remove(minIndex); // When the min is found, remove it from the list. Then we can loop through the list again and find a different minimum
+            vectors.remove(
+                minIndex); // When the min is found, remove it from the list. Then we can loop through the list again and find a different minimum
 
-            sorted[sorted.length] = min; // Add the minimum to the Array, in the next consecutive location (Append)
+            sorted[sorted.length] =
+                min; // Add the minimum to the Array, in the next consecutive location (Append)
 
-            sort = vectors.isEmpty() && !(sorted.length == Unsorted.length); // If the vector list is empty, and the amount of vectors is equal
-                                                                             // to the input, Stop looping by setting sort to false.
+            sort = vectors.isEmpty() && !(sorted.length
+                                              == Unsorted.length); // If the vector list is empty, and the amount of vectors is equal
+            // to the input, Stop looping by setting sort to false.
         }
 
         return sorted;
@@ -202,14 +204,14 @@ public class Vector {
         Vector[] sorted = new Vector[] {};
         ArrayList<Vector> vectors = new ArrayList<>(Arrays.asList(Unsorted));
         Boolean sort = !vectors.isEmpty();
-        while(sort) {
+        while (sort) {
             int maxIndex = 0;
             Vector max = vectors.get(0);
 
             for (int i = 0; i < vectors.size(); i++) {
                 Vector index = vectors.get(i);
-                if(index.x > max.x) { // This is the only difference between min and max,
-                                      // with max if the current is bigger than the max (min equivalent) then set it equal to that.
+                if (index.x > max.x) { // This is the only difference between min and max,
+                    // with max if the current is bigger than the max (min equivalent) then set it equal to that.
                     max = index;
                     maxIndex = i;
                 }
@@ -227,9 +229,9 @@ public class Vector {
 
     Vector[][] OnionSort(Vector[] unsorted) {
         ArrayList<Vector> vectors = new ArrayList<>(Arrays.asList(unsorted)); // Convert the Array to an Array list to speed up removal operations
-        Vector[][] sorted = new Vector[][]{}; // Create the array of sorted vectors
+        Vector[][] sorted = new Vector[][] {}; // Create the array of sorted vectors
         Boolean sort = !vectors.isEmpty(); // Check if list is empty. If not then sort is true.
-        while(sort) { // If list is not empty, sort. Loop through until list empty.
+        while (sort) { // If list is not empty, sort. Loop through until list empty.
 
             // Actual Sort Function
             Vector min = vectors.get(0); //Set the first element to compare to
@@ -255,15 +257,15 @@ public class Vector {
                 //add to first spot in array if empty
                 sorted[sortIndex][0] = min;
 
-            } else if(sorted[sortIndex-1][0].x == min.x) {
+            } else if (sorted[sortIndex - 1][0].x.equals(min.x)) {
                 // If same x cord is found, Add to existing x sub array.
-                int SubSortIndex = sorted[sortIndex-1].length;
-                sorted[sortIndex-1][SubSortIndex] = min;
+                int SubSortIndex = sorted[sortIndex - 1].length;
+                sorted[sortIndex - 1][SubSortIndex] = min;
 
             } else {
 
                 // If array has contents but lacks this X, add it.
-                sorted[sortIndex][0]= min;
+                sorted[sortIndex][0] = min;
             }
 
 
@@ -274,9 +276,34 @@ public class Vector {
         return sorted;
     }
 
+    public Vector[] getRadius(int radius) {
+        Vector[] vectors = new Vector[] {}; //  Array to hold the vectors
+        int count = 0; // Index of the vector array
+        for (double x = -this.x; x <= this.x; x++) { // Ok so this starts at the value of -x, and counts up to positive x.
+
+            // This takes the sin of the inverse cosine of the x defined in the for loop divided by x.
+            double a = x * Math.sin(Math.acos(x / this.x));
+            // Since X is the Hypotenuse of a triangle as well as the radius of the circle, we can use unit circle style math to get Y, and Z
+            // All we need to do is add the value of A to Y, to get the absolute vector. It works the same for Z.
+
+            // For each X position there will be a row of Y positions, which will contain a column of Z positions.
+
+            for (double y = -a + -this.y; y <= a + this.y; y++) { // Add negative A to y, go until y is equal to a+y.
+                // For each Y position there will be a column of Z positions.
+
+                for (double z = -a + -this.z; z <= a + this.z; z++) {
+
+                    // Add the vector, for each Z coordinate. At the location of the index.
+                    vectors[count] = new Vector(x, y, z);
+                    count++; // Increment the Index by one.
+                }
+            }
+        }
+        return vectors;
+    }
+
     //TODO: Sort sub list in onion.
     // Possible solution:
     //  * Sort vectors from low to high first, then onionize it.
-
 
 }
