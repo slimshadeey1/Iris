@@ -179,7 +179,7 @@ public class Vector {
      */
 
 
-    Vector[] sortLow(Vector[] Unsorted) {
+    static public Vector[] sortLow(Vector[] Unsorted) {
         Vector[] sorted = new Vector[] {}; // Sorted array
         ArrayList<Vector> vectors = new ArrayList<>(Arrays
             .asList(Unsorted)); // Turn unsorted into list for easier manipulation (removing, etc.)
@@ -215,7 +215,7 @@ public class Vector {
     }
 
 
-    Vector[] sortHigh(Vector[] Unsorted) {
+    static public Vector[] sortHigh(Vector[] Unsorted) {
         Vector[] sorted = new Vector[] {};
         ArrayList<Vector> vectors = new ArrayList<>(Arrays.asList(Unsorted));
         Boolean sort = !vectors.isEmpty();
@@ -242,7 +242,7 @@ public class Vector {
     }
 
 
-    Vector[][] OnionSort(Vector[] unsorted) {
+    static public Vector[][] OnionSort(Vector[] unsorted) {
         ArrayList<Vector> vectors = new ArrayList<>(Arrays.asList(unsorted)); // Convert the Array to
         // an Array list to speed up removal operations
         Vector[][] sorted = new Vector[][] {}; // Create the array of sorted vectors
