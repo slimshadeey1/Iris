@@ -4,6 +4,7 @@ Iris
 This is a misc set of tools bundled in a java library. 
 
 TODO:
+- [ ] Convert to gradle
 - [ ] Netty IO Integration
 - [ ] Server to Server Com System
 - [ ] Server to Client Com System
