@@ -1,4 +1,4 @@
-package com.benbyers.Iris.Math;
+package com.benbyers.Iris.math;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;

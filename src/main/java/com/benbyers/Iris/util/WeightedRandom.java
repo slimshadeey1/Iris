@@ -1,4 +1,4 @@
-package com.benbyers.Iris.Math;
+package com.benbyers.Iris.util;
 
 import java.util.ArrayList;
 import java.util.Random;

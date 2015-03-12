@@ -1,8 +1,8 @@
 package com.benbyers.test;
 
-import com.benbyers.Iris.Math.Tuple;
-import com.benbyers.Iris.Math.Vector;
-import com.benbyers.Iris.Math.WeightedRandom;
+import com.benbyers.Iris.util.Tuple;
+import com.benbyers.Iris.math.Vector;
+import com.benbyers.Iris.util.WeightedRandom;
 
 /**
  * Created by benbyers on 3/10/15.
@@ -28,7 +28,7 @@ public class Main {
         random.getRandom();
 
         // Ill figure out a way to test this.
-    
+
     }
 
 }
