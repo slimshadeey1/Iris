@@ -1,13 +1,13 @@
 package com.benbyers.Iris.math.units.time;
 
 /**
- * Created by benbyers on 3/11/15.
+ * Created by benbyers on 3/13/15.
  */
-public class Nanosecond extends Number implements Time {
+public class Week extends Number implements Time {
 
     private Long Value;
 
-    public Nanosecond(Long value) {
+    public Week(Long value) {
         Value = value;
     }
 
@@ -28,6 +28,7 @@ public class Nanosecond extends Number implements Time {
     }
 
     @Override public int intValue() {
+
         return 0;
     }
 

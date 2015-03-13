@@ -59,7 +59,6 @@ public class Vector {
         this.y += y;
         this.z += z;
     }
-
     //distance to
     public double getDistanceTo(Vector vector) {
         double X = this.x - vector.x;
@@ -69,9 +68,9 @@ public class Vector {
     }
 
     public void multiplyByVector(Vector vector) {
-        setX(this.x * vector.x);
-        setY(this.y * vector.y);
-        setZ(this.z * vector.z);
+        this.x= (this.x * vector.x);
+        this.y= (this.y * vector.y);
+        this.z= (this.z * vector.z);
     }
 
     public boolean equals(Vector vector) {
@@ -118,23 +117,18 @@ public class Vector {
         this.x /= x;
     }
 
-
     public void divideY(double y) {
         this.y /= y;
     }
-
 
     public void divideZ(double z) {
         this.z /= z;
     }
 
-
     public byte[] getXbytes() {
         // Needs to be double checked if 32bit
         return ByteBuffer.allocate(32).putLong(Math.round(x)).array();
     }
-
-
 
     public Vector getSquareDistance(Vector vector) {
         return new Vector(vector.x - x, vector.y - y, vector.z - z);
