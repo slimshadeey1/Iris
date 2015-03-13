@@ -1,0 +1,243 @@
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Tera.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Tera.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Tera.java	(revision )
+@@ -1,7 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Tera<T> extends Factors {
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Pico.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Pico.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Pico.java	(revision )
+@@ -1,7 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Pico<T> extends Factors {
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Peta.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Peta.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Peta.java	(revision )
+@@ -1,7 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Peta<T> extends Factors {
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Nano.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Nano.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Nano.java	(revision )
+@@ -1,7 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Nano<T> extends Factors {
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Milli.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Milli.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Milli.java	(revision )
+@@ -1,8 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Milli<T> extends Factors {
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Micro.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Micro.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Micro.java	(revision )
+@@ -1,7 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Micro<T> extends Factors{
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Mega.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Mega.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Mega.java	(revision )
+@@ -1,8 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Mega<T> extends Factors{
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Kilo.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Kilo.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Kilo.java	(revision )
+@@ -1,8 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Kilo<T> extends Factors {
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Hecto.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Hecto.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Hecto.java	(revision )
+@@ -1,8 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Hecto<T> extends Factors {
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Giga.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Giga.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Giga.java	(revision )
+@@ -1,8 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Giga<T> extends Factors{
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Factors.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Factors.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Factors.java	(revision )
+@@ -1,26 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Factors<T> {
+-    public Pico<T> toPico(); //smallest
+-    public Nano<T> toNano();
+-    public Micro<T> toMicro();
+-    public Milli<T> toMilli();
+-    public Centi<T> toCenti();
+-    public Deci<T> toDeci();
+-
+-    // -- Standard Metric No Prefix --
+-
+-    public Deca<T> toDeca();
+-    public Hecto<T> toHecto();
+-    public Kilo<T> toKilo();
+-    public Mega<T> toMega();
+-    public Giga<T> toGiga();
+-    public Tera<T> toTera();
+-    public Peta<T> toPeta(); //largest
+-
+-
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Deci.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Deci.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Deci.java	(revision )
+@@ -1,8 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Deci<T> extends Factors  {
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Deca.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Deca.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Deca.java	(revision )
+@@ -1,8 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Deca<T> extends Factors {
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Centi.java
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Centi.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Centi.java	(revision )
+@@ -1,10 +0,0 @@
+-package com.benbyers.Iris.math.units.Metric;
+-
+-/**
+- * Created by benbyers on 3/12/15.
+- */
+-public interface Centi<T> extends Factors {
+-
+-
+-
+-}
+Index: src/main/java/com/benbyers/Iris/math/units/Metric/Metric.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/benbyers/Iris/math/units/Metric/Metric.java	(revision )
++++ src/main/java/com/benbyers/Iris/math/units/Metric/Metric.java	(revision )
+@@ -5,22 +5,23 @@
+ /**
+  * Created by benbyers on 3/12/15.
+  */
+-public interface Metric<T> extends Centi<T>, Deca<T>,Deci<T>,Giga<T>,Hecto<T>,Kilo<T>,Mega<T>,Micro<T>,Milli<T>,Nano<T>,Peta<T>,Pico<T>,Tera<T>{
+-    public Pico<T> toPico(); //smallest
+-    public Nano<T> toNano();
+-    public Micro<T> toMicro();
+-    public Milli<T> toMilli();
+-    public Centi<T> toCenti();
+-    public Deci<T> toDeci();
++public interface Metric<T> {
++    public double toPico(); //smallest
++    public double toNano();
++    public double toMicro();
++    public double toMilli();
++    public double toCenti();
++    public double toDeci();
+ 
+     // -- Standard Metric No Prefix --
+ 
+-    public Deca<T> toDeca();
+-    public Hecto<T> toHecto();
+-    public Kilo<T> toKilo();
+-    public Mega<T> toMega();
+-    public Giga<T> toGiga();
+-    public Tera<T> toTera();
+-    public Peta<T> toPeta(); //largest
++    public double toDeca();
++    public double toHecto();
++    public double toKilo();
++    public double toMega();
++    public double toGiga();
++    public double toTera();
++    public double toPeta(); //largest
+-    
++
++    public T()
+ }
