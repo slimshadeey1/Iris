@@ -9,7 +9,6 @@ import com.benbyers.Iris.math.units.Metric.Hecto;
 import com.benbyers.Iris.math.units.Metric.Kilo;
 import com.benbyers.Iris.math.units.Metric.Mega;
 import com.benbyers.Iris.math.units.Metric.Metric;
-import com.benbyers.Iris.math.units.Metric.MetricConstants;
 import com.benbyers.Iris.math.units.Metric.Micro;
 import com.benbyers.Iris.math.units.Metric.Milli;
 import com.benbyers.Iris.math.units.Metric.Nano;
@@ -71,10 +70,6 @@ public class Gram extends Number implements Comparator<Gram>, Mass, Metric<Gram>
     }
 
     @Override public Pound toPounds() {
-        return null;
-    }
-
-    @Override public AtomicMassUnit toAMU() {
         return null;
     }
 

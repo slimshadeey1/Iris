@@ -1,8 +1,10 @@
 package com.benbyers.test;
 
-import com.benbyers.Iris.util.Tuple;
+import com.benbyers.Iris.math.units.Metric.Centi;
+import com.benbyers.Iris.math.units.mass.Gram;
+import com.benbyers.Iris.math.util.Tuple;
 import com.benbyers.Iris.math.Vector;
-import com.benbyers.Iris.util.WeightedRandom;
+import com.benbyers.Iris.math.util.WeightedRandom;
 
 /**
  * Created by benbyers on 3/10/15.
@@ -26,6 +28,9 @@ public class Main {
         random.putObject(vector);
 
         random.getRandom();
+
+        Centi<Gram> test = new Centi<>();
+
 
         // Ill figure out a way to test this.
 

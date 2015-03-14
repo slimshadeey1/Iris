@@ -5,74 +5,78 @@ package com.benbyers.Iris.math.units.time;
  */
 public class Week extends Number implements Time {
 
-    private Long Value;
+    private Double Value;
 
-    public Week(Long value) {
+    private TimeConstants c = TimeConstants.Week;
+
+    public Week(Double value) {
         Value = value;
     }
 
     @Override public void multiplyBy(Time t) {
+        Value*=t.toWeeks().Value;
 
     }
 
     @Override public void add(Time t) {
+        Value+=t.toWeeks().Value;
 
     }
 
     @Override public void subtract(Time t) {
+        Value-=t.toWeeks().Value;
 
     }
 
     @Override public void divideBy(Time t) {
-
+        Value/=t.toWeeks().Value;
     }
 
     @Override public int intValue() {
-
-        return 0;
+        return Value.intValue();
     }
 
     @Override public long longValue() {
-        return 0;
+        return Value.longValue();
     }
 
     @Override public float floatValue() {
-        return 0;
+        return Value.floatValue();
     }
 
     @Override public double doubleValue() {
-        return 0;
+        return Value;
     }
 
     @Override public Nanosecond toNanoSeconds() {
-        return null;
+        return new Nanosecond(Value*c.getNanos());
     }
 
     @Override public Millisecond toMillis() {
-        return null;
+        return new Millisecond(Value*c.getMillis());
     }
 
     @Override public Second toSeconds() {
-        return null;
+        return new Second(Value*c.getSeconds());
     }
 
     @Override public Minute toMinutes() {
-        return null;
+        return new Minute(Value*c.getMinutes());
     }
 
     @Override public Hour toHours() {
-        return null;
+        return new Hour(Value*c.getHours());
     }
 
     @Override public Day toDays() {
-        return null;
+        return new Day(Value*c.getDays());
     }
 
     @Override public Week toWeeks() {
-        return null;
+        return new Week(Value*c.getWeeks());
     }
 
     @Override public Year toYears() {
-        return null;
+        return new Year(Value*c.getYears());
     }
 }
