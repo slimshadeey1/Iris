@@ -6,7 +6,6 @@ package com.benbyers.Iris.math.util;
 public class PreciseLong extends Number implements Comparable<PreciseLong> {
 
     private Long whole;
-
     private Long decimal;
 
     public PreciseLong(long whole, long decimal) {
@@ -30,6 +29,7 @@ public class PreciseLong extends Number implements Comparable<PreciseLong> {
         return new Double(whole+"."+decimal);
     }
 
+
     @Override public byte byteValue() {
         return whole.byteValue();
     }
@@ -38,6 +38,7 @@ public class PreciseLong extends Number implements Comparable<PreciseLong> {
     @Override public short shortValue() {
         return whole.shortValue();
     }
+
 
     // Will customize later
     @Override public int hashCode() {
@@ -69,5 +70,4 @@ public class PreciseLong extends Number implements Comparable<PreciseLong> {
                             this.decimal < o.decimal ? -1 :
                                 this.decimal == o.decimal ? 0 : 0) : 0;
     }
-
 }

@@ -1,4 +1,4 @@
-package com.benbyers.Iris.util;
+package com.benbyers.Iris.math.util;
 
 /**
  * Created by benbyers on 3/7/15.
