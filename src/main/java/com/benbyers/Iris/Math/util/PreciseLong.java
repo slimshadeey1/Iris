@@ -65,9 +65,9 @@ public class PreciseLong extends Number implements Comparable<PreciseLong> {
         return
             this.whole > o.whole ? 1 :
                 this.whole < o.whole ? -1 :
-                    this.whole == o.whole ? (
+                    this.whole.equals(o.whole) ? (
                         this.decimal > o.decimal ? 1 :
                             this.decimal < o.decimal ? -1 :
-                                this.decimal == o.decimal ? 0 : 0) : 0;
+                                this.decimal.equals(o.decimal) ? 0 : 0) : 0;
     }
 }

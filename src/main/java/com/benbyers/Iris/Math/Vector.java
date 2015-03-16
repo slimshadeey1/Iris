@@ -7,21 +7,31 @@ import java.util.Arrays;
 /**
  * Created by Ben Byers on 10/4/2014. Math for Vectors
  */
-public class Vector {
+public class Vector implements Comparable<Vector> {
     private Double x;
     private Double y;
     private Double z;
 
     public Vector(double x, double y, double z) {
+
         this.x = x;
         this.y = y;
         this.z = z;
+
     }
 
     public Vector(Vector vector, int x, int y, int z) {
         this.x = vector.x + x;
         this.y = vector.y + y;
         this.z = vector.z + z;
+    }
+
+    @Override public int compareTo(Vector o) {
+        double This = this.getLength();
+        double That = o.getLength();
+        return
+            This > That ? 1 :
+                This < That ? -1 : 0;
     }
 
     @Override public String toString() {
@@ -65,6 +75,10 @@ public class Vector {
         double Y = this.y - vector.y;
         double Z = this.z - vector.z;
         return Math.sqrt(X * Y * Z);
+    }
+
+    public double getLength(){
+        return Math.sqrt(x * y * z);
     }
 
     public void multiplyByVector(Vector vector) {
