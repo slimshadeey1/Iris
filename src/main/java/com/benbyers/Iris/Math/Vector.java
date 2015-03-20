@@ -186,6 +186,31 @@ public class Vector implements Comparable<Vector> {
 
      */
 
+    //TODO: Finish this.
+    static public Vector[] sortDistance(Vector[] unsorted) {
+        Vector[] product = new Vector[]{};
+        Vector[] buffer = new Vector[]{};
+        boolean sort = true;
+        while(sort){
+
+            for (int i = 0; i < unsorted.length; i++) {
+                Vector x = unsorted[i];
+                Vector z;
+                Vector y;
+                if(i == 0){
+                    z = unsorted[i+1];
+                }
+                y = unsorted[i-1];
+
+
+
+            }
+
+
+        }
+
+        return product;
+    }
 
     static public Vector[] sortLow(Vector[] Unsorted) {
         Vector[] sorted = new Vector[] {}; // Sorted array

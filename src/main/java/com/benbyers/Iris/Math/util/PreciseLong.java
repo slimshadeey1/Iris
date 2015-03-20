@@ -118,6 +118,7 @@ public class PreciseLong extends Number implements Comparable<PreciseLong> {
 //        return Final;
 //    }
     // Big to low
+    //TODO: Rewrite this. Fucking bugged.
     private int[] convertToBase2(int[] n){
         int[] output = new int[]{};
         int carry = 0;
