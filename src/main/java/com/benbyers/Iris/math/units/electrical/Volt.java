@@ -13,4 +13,5 @@ public class Volt extends BaseMetric {
     @Override public int thisValue() {
         return MetricConstants.Base.getFactor();
     }
+
 }
