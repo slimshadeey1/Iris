@@ -4,30 +4,33 @@ package com.benbyers.Iris.math.units.Metric;
  * Created by benbyers on 3/12/15.
  */
 public enum MetricConstants {
-        Pico(0.000000000001d),
-        Nano(0.000000001d),
-        Micro(0.000001d),
-        Milli(0.001d),
-        Centi(0.01d),
-        Deci(0.1d),
+        Pico(-12),
+        Nano(-9),
+        Micro(-6),
+        Milli(-3),
+        Centi(-2),
+        Deci(-1),
 
         // -- Standard Metric No Prefix --
+        Base(1),
 
-        Deca(10d),
-        Hecto(100d),
-        Kilo(1000d),
-        Mega(1000000d),
-        Giga(1000000000d),
-        Tera(1000000000000d),
-        Peta(1000000000000000d); //largest
 
-    private final double factor;
+        Deca(2),
+        Hecto(3),
+        Kilo(4),
+        Mega(7),
+        Giga(10),
+        Tera(13),
+        Peta(16); //largest
 
-    MetricConstants(double factor){
+    private int factor;
+
+
+    MetricConstants(int factor){
         this.factor = factor;
     }
 
-    public double getFactor() {
+    public int getFactor() {
         return factor;
     }
 }

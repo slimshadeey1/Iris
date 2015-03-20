@@ -1,8 +1,6 @@
 package com.benbyers.Iris.math.units.mass;
 
 import com.benbyers.Iris.math.units.force.Newton;
-import com.benbyers.Iris.math.units.weight.Ton;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * Created by benbyers on 3/12/15.
@@ -15,10 +13,15 @@ public interface Mass {
 
     public Pound toPounds();
 
+    public Pound toPounds(double gravity);
+
     public Newton toNewtons();
 
-    public Ton toTon(Double gravity);
+    public Newton toNewtons(double gravity);
 
-    public com.benbyers.Iris.math.units.weight.Pound toPounds(Double Gravity);
+    public Ton toTon();
+
+    public Ton toTon(double gravity);
+
 
 }

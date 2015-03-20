@@ -29,8 +29,9 @@ public class Main {
 
         random.getRandom();
 
-        Centi<Gram> test = new Centi<>();
+        Gram test = new Gram(2);
 
+        test.toDeca();
 
         // Ill figure out a way to test this.
 
