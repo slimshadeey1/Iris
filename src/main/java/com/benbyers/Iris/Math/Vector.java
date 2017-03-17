@@ -74,6 +74,7 @@ public class Vector implements Comparable<Vector> {
         double X = this.x - vector.x;
         double Y = this.y - vector.y;
         double Z = this.z - vector.z;
+
         return Math.sqrt(X * Y * Z);
     }
 
