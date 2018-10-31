@@ -3,7 +3,7 @@ Iris
 
 This is a misc set of tools bundled in a java library. 
 
-Also this is the home of Iris Forge graphics system, which is Slimshadeey1's custom graphic loader that is high performance and high quality graphics.
+I used this to memorize units and then never finished it.
 
 TODO:
 - [ ] Convert to gradle
